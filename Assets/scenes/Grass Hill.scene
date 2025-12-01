@@ -10567,10 +10567,10 @@
                   "35,0.462026"
                 ],
                 "TextureUAxis": [
-                  "-1,0.0000004722959,0",
-                  "-1,0.0000004722959,0",
-                  "0.0000001816522,1,0",
-                  "-0.0000001816522,-1,0",
+                  "-1,0.0000001841877,0",
+                  "-1,0.0000001841877,0",
+                  "0.0000001841877,1,0",
+                  "-0.0000001841877,-1,0",
                   "1,0,0",
                   "-1,0,0"
                 ],
@@ -10583,20 +10583,20 @@
                   "0,0,-1"
                 ],
                 "TextureScale": [
-                  "0.1,0.1",
+                  "0.1,0.1000001",
                   "0.1,0.1",
                   "0.1,0.09999998",
+                  "0.1,0.09999999",
                   "0.09999999,0.09999998",
-                  "0.1,0.09999998",
-                  "0.09999999,0.09999998"
+                  "0.09999999,0.09999999"
                 ],
                 "TextureOffset": [
-                  "913.4414,973.9297",
-                  "913.4414,973.9316",
-                  "973.9199,953.1145",
-                  "50.08203,953.1143",
+                  "913.4531,973.9609",
+                  "913.457,973.9434",
+                  "973.9258,953.1145",
+                  "50.07031,953.1141",
                   "110.5352,953.1145",
-                  "913.4688,953.1143"
+                  "913.4688,953.1141"
                 ],
                 "MaterialIndex": [
                   0,
@@ -11220,6 +11220,74 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "f8f7b90d-f7d2-4376-be23-e784f663b045",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Music Player",
+      "Position": "-709.7213,-57.22973,676.4203",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundPointComponent",
+          "__guid": "90108980-2fdd-4f1b-8095-031cd8f2733f",
+          "__enabled": true,
+          "Distance": 512,
+          "DistanceAttenuation": false,
+          "DistanceAttenuationOverride": false,
+          "Falloff": [
+            {
+              "x": 0,
+              "y": 1,
+              "in": 3.1415927,
+              "out": -3.1415927,
+              "mode": "Mirrored"
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
+            }
+          ],
+          "Force2d": false,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Occlusion": false,
+          "OcclusionOverride": false,
+          "OcclusionRadius": 32,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Pitch": 1,
+          "PlayOnStart": true,
+          "ReflectionOverride": false,
+          "Reflections": false,
+          "Repeat": true,
+          "SoundEvent": "sounds/grass_hill_music.sound",
+          "SoundOverride": false,
+          "StopOnNew": false,
+          "TargetMixer": {
+            "Name": "music",
+            "Id": "4bb78460-cd9e-467b-be3c-eeea0c9d9065"
+          },
+          "Volume": 1
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
