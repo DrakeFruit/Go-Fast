@@ -15,11 +15,6 @@ public sealed class StartFinish : Component, Component.ITriggerListener
 				player?.Timer = 0;
 				player?.TimerActive = true;
 			}
-			else
-			{
-				player?.Timer = 0;
-				player?.TimerActive = false;
-			}
 		}
 	}
 	
@@ -28,16 +23,12 @@ public sealed class StartFinish : Component, Component.ITriggerListener
 		if ( other.Tags.Has( "player" ) )
 		{
 			var player = other.GetComponentInParent<Car>();
-			if ( Start )
+			if ( !Start )
 			{
-				player?.Timer = 0;
-				player?.TimerActive = false;
+				player.FastestTime = player.Timer.Relative;
 			}
-			else
-			{
-				player?.Timer = 0;
-				player?.TimerActive = true;
-			}
+			player.TimerActive = false;
+			player.Timer = 0;
 		}
 	}
 }

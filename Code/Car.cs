@@ -6,12 +6,13 @@ using Sandbox;
 public partial class Car : Component
 {
 	[Property, Group("Tires")] public float TireRestDistance { get; set; } = 38;
-	[Property, Group("Tires")] public float TireGrip { get; set; } = 200;
+	[Property, Group("Tires")] public float SpringStrength { get; set; } = 50;
+	[Property, Group("Tires")] public float SpringDamping { get; set; } = 5;
+	[Property, Group("Tires"), Range(0, 1)] public float TireGrip { get; set; } = 200;
 	[Property, Group("Tires")] public float TireMass { get; set; } = 10;
 	[Property, Group("Tires")] public List<GameObject> FrontTires { get; set; }
 	[Property, Group("Tires")] public List<GameObject> BackTires { get; set; }
-	[Property] public float SpringStrength { get; set; } = 50;
-	[Property] public float SpringDamping { get; set; } = 5;
+	
 	[Property] public float MaxSpeedMPH { get; set; } = 90;
 	public float MaxSpeed { get { return MaxSpeedMPH * 17.6f; } }
 	[Property, Range(0, 10)] public float TurnSpeed { get; set; } = 5;
@@ -42,18 +43,9 @@ public partial class Car : Component
 		{
 			ApplySuspension( i );
 		}
-
-		if ( Input.Pressed( "jump" ) && TireTrace.Hit )
-		{
-			Rb.ApplyImpulse( Rotation.Identity.Up * JumpForce * Rb.Mass );
-		}
-
-		if ( !TireTrace.Hit )
-		{
-			WorldRotation = WorldRotation.SlerpTo( WorldRotation.Angles().WithPitch( 0 ), 2 );
-		}
-
-		WorldRotation = WorldRotation.SlerpTo( Scene.Camera.WorldRotation.Angles().WithPitch(WorldRotation.Angles().pitch), 0.25f );
+		
+		WorldRotation = WorldRotation.SlerpTo( Scene.Camera.WorldRotation.Angles().WithPitch(
+			TireTrace.Hit ? WorldRotation.Angles().pitch : Scene.Camera.WorldRotation.Pitch() ), 0.25f );
 	}
 
 	public void ApplySuspension( GameObject tire )
@@ -82,7 +74,7 @@ public partial class Car : Component
 			Rb.ApplyForceAt( tire.WorldPosition, slipDir * TireMass * slipForce );
 
 			var model = tire.Children.FirstOrDefault();
-			if ( model.IsValid() && TireTrace.Distance < TireRestDistance * 0.75f ) model.WorldPosition = TireTrace.HitPosition;
+			if ( model.IsValid() ) model.WorldPosition = TireTrace.HitPosition;
 			
 			//DebugOverlay.Line(tire.WorldPosition, tire.WorldPosition + springDir * springForce, Color.Blue);
 			//DebugOverlay.Line(tire.WorldPosition, tire.WorldPosition + slipDir * TireMass * slipForce, Color.Red);
