@@ -49,7 +49,7 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "SpringDamping": 5,
-        "SpringStrength": 60,
+        "SpringStrength": 80,
         "TireGrip": 0.1,
         "TireMass": 10,
         "TireRestDistance": 60,
