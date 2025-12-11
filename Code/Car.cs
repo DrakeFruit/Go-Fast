@@ -44,8 +44,7 @@ public partial class Car : Component
 			ApplySuspension( i );
 		}
 		
-		WorldRotation = WorldRotation.SlerpTo( Scene.Camera.WorldRotation.Angles().WithPitch(
-			TireTrace.Hit ? WorldRotation.Angles().pitch : Scene.Camera.WorldRotation.Pitch() ), 0.25f );
+		WorldRotation = WorldRotation.SlerpTo( Scene.Camera.WorldRotation.Angles().WithPitch(WorldRotation.Angles().pitch ), 0.25f );
 	}
 
 	public void ApplySuspension( GameObject tire )

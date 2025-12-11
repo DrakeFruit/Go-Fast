@@ -52,30 +52,40 @@
         "SpringStrength": 80,
         "TireGrip": 0.1,
         "TireMass": 10,
-        "TireRestDistance": 60,
-        "TorqueCurve": [
-          {
-            "x": 0,
-            "y": 1,
-            "in": -0.13333346,
-            "out": 0.13333346,
-            "mode": "Mirrored"
-          },
-          {
-            "x": 1,
-            "y": 0,
-            "in": -0,
-            "out": -0,
-            "mode": "Mirrored"
-          }
-        ],
+        "TireRestDistance": 45,
+        "TorqueCurve": {
+          "rangey": "0,0.9611111",
+          "frames": [
+            {
+              "x": 0,
+              "y": 1,
+              "in": -0.13333346,
+              "out": 0.13333346,
+              "mode": "Mirrored"
+            },
+            {
+              "x": 0.440625,
+              "y": 0.9546662,
+              "in": -0.12206723,
+              "out": 0.12206723,
+              "mode": "Mirrored"
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "in": -0,
+              "out": -0,
+              "mode": "Mirrored"
+            }
+          ]
+        },
         "TurnSpeed": 5
       },
       {
         "__type": "Sandbox.Rigidbody",
         "__guid": "beb58c61-83f2-4ed3-a1fe-77e47dee6b26",
         "__enabled": true,
-        "AngularDamping": 0,
+        "AngularDamping": 10,
         "EnableImpactDamage": true,
         "Gravity": true,
         "GravityScale": 1,
@@ -90,7 +100,7 @@
           "Roll": false
         },
         "MassCenterOverride": "0,0,0",
-        "MassOverride": 10000,
+        "MassOverride": 1000,
         "MinImpactDamageSpeed": 500,
         "MotionEnabled": true,
         "OnComponentDestroy": null,
